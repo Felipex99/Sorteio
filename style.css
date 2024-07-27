@@ -1,0 +1,87 @@
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.matter-div {
+  background: #CFCFCF;
+  position: relative; /* ou relative, fixed, conforme necessário */
+  top: 0px; /* ajuste conforme necessário */
+  left: 50px; /* ajuste conforme necessário */
+  width: 600px; /* ajuste conforme necessário */
+  height: 600px; /* ajuste conforme necessário */
+  border: 1px solid black; /* opcional, para visualizar a borda da div */
+  margin-right: 90px;
+}
+
+body {
+  font-family: Montserrat,Arial, Helvetica, sans-serif;
+  background: #27292c;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.editar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #CFCFCF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.btn-criar{
+  background: #2FAB3B;
+  color:white;
+  border:none;
+  width: 90px;
+  border-radius:5px;
+  padding:5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-criar:active {
+  background: #27932D;
+  transform: scale(0.98);
+}
+
+.dist-item{
+  margin:3px
+}
+
+.inserir{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #CFCFCF;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sorteados{
+  color:#27292c;
+  background: linear-gradient(to bottom, #FFB800, #D19437);
+  width: 20%;
+  border-radius: 10px;
+}
+
+input{
+  font-family: "Montserrat";
+  font-weight: 500;
+}
