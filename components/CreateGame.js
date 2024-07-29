@@ -1,7 +1,15 @@
 import Matter from "matter-js"
+import { Svg } from "matter-js"
+import { decomp } from "poly-decomp"
+import $ from 'jquery'
+
+Matter.Common.setDecomp(decomp);
+
+
 let qnt_part = 0
 let array = []
 let bola_participante = [{}]
+const SVG_PATH_URNA = "#matter-urna"
 
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
@@ -19,6 +27,8 @@ export function changeTitle(elementId,element2Id){
     const div_participantes = document.querySelector("#div-nomes")
     const div_world = document.querySelector("#world")
     elementId.addEventListener("click", () =>{ 
+
+
         if (isNaN(num_participantes.value) || num_participantes.value<2){
             alert("Números de participantes deve ser maior que 1")
         }else{
@@ -47,11 +57,14 @@ export function changeTitle(elementId,element2Id){
         var Engine = Matter.Engine,
             Render = Matter.Render,
             Runner = Matter.Runner,
+            Common = Matter.Common,
             Bodies = Matter.Bodies,
+            Svg = Matter.Svg,
+            Vector = Matter.Vector,
+            Vertices = Matter.Vertices,
             Composite = Matter.Composite,
             Mouse = Matter.Mouse,
             MouseConstraint = Matter.MouseConstraint
-        
         var engine = Engine.create()
         var render = Render.create({
             element: document.querySelector("#world"),
@@ -64,7 +77,8 @@ export function changeTitle(elementId,element2Id){
             }
         })
         
-        
+        createSvgBodies()
+
         divInputs.forEach(nome =>{
             array.push(nome.value)
         })
@@ -96,18 +110,36 @@ export function changeTitle(elementId,element2Id){
         console.log(bola_participante, cor)
 
         Composite.add(engine.world, mouseConstraints)
+
+
+        async function createSvgBodies(){
+            console.log("AAAAAAAAAAAAAAAAAAA")
+            let arrV = []
+            var svg = document.querySelector("#svg")
+            $("#svg").
+                find("path").
+                each(function (path,i){
+                    console.log(path)
+                    var v = Bodies.fromVertices(
+                        300,
+                        80,
+                        Svg.pathToVertices(path,5))
+                arrV.push(v)
+                console.log(v)
+            })
+            Composite.add(engine.world, arrV)
+        }
         Render.run(render);
         render.mouse = mouse
+
+        //DEFININDO A MASK COLLISION DO MOUSE
+        
+        mouseConstraints.collisionFilter.mask = 0x0002
         var runner = Runner.create();
 
         Runner.run(runner,engine);
             console.log(array)
         })
 
-
     return qnt_part, array;
-}
-
-export function logQntPart() {
-    console.log("Número de participantes:", qnt_part);
 }

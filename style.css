@@ -38,7 +38,11 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 0px;
   background: #CFCFCF;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -56,6 +60,24 @@ h1 {
 }
 
 .btn-criar:active {
+  background: #27932D;
+  transform: scale(0.98);
+}
+
+.btn-girar{
+  background: #2FAB3B;
+  color:white;
+  border:none;
+  font-weight: 700;
+  font-size: large;
+  width: 130px;
+  border-radius:5px;
+  padding:15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-girar:active {
   background: #27932D;
   transform: scale(0.98);
 }

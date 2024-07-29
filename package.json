@@ -12,6 +12,8 @@
     "vite": "^5.3.4"
   },
   "dependencies": {
-    "matter-js": "^0.20.0"
+    "jquery": "^3.7.1",
+    "matter-js": "^0.20.0",
+    "poly-decomp": "^0.3.0"
   }
 }
